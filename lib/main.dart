@@ -6,22 +6,20 @@ class ApplicationWidget extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    var questions = ["What's you favorite color?","What's your favorite animal"];
     return MaterialApp(
         home: Scaffold( //Scaffold contains some basic elements of empty page like White background, themes for Text, etc
           appBar: AppBar(title: Text("App Bar Text Widget"),), //Default App bar with a title
-
-          body: Text("This is my default Text"), //Body is the Background of the App.
-
-          bottomNavigationBar: BottomNavigationBar( //Bottom Navigation Bar
-            backgroundColor: Colors.amberAccent,
-            items: const <BottomNavigationBarItem>[  //Tabs of the Bottom Navigation bar are written here
-              BottomNavigationBarItem(icon: Icon(Icons.access_alarm),title: Text("Alarm")),
-              BottomNavigationBarItem(icon: Icon(Icons.access_time),title: Text("Time"))
-            ]
-         )
+          body: Column(children: <Widget>[
+            Padding(padding:EdgeInsets.only(top: 50,left: 10,),child: Text("Padded Text"),), // Padding Widget
+            Text("The Question!"),
+            RaisedButton(child: Text("Answer 1"),onPressed: null,),
+            RaisedButton(child: Text("Answer 2"),onPressed: null,),
+            RaisedButton(child: Text("Answer 3"),onPressed: null,),
+          ],
+          )
 
         )
     );
   }
-
 }
