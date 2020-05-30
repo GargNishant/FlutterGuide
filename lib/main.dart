@@ -12,17 +12,28 @@ class ApplicationWidget extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
             //Scaffold contains some basic elements of empty page like White background, themes for Text, etc
-            appBar: AppBar(title: Text("App Bar Text Widget"),), //Default App bar with a title
+            appBar: AppBar(
+              title: Text("App Bar Text Widget"),
+            ),
             body: Column(
               children: <Widget>[
                 Text("The Question!"),
-                RaisedButton(child: Text("Answer 1"), onPressed: answerQuestion,), //We are passing the name of the method, making like a pointer. This way
-                RaisedButton(child: Text("Answer 2"), onPressed: answerQuestion,), //onPressed is not expecting the value of function, which is void.
-                RaisedButton(child: Text("Answer 3"), onPressed: answerQuestion,), //Instead it will execute the function when clicked. Lecture 31
+                RaisedButton(
+                  child: Text("Answer 1"),
+                  onPressed: () => print("Anonymous"),
+                ),
+                RaisedButton(
+                  child: Text("Answer 2"),
+                  onPressed: () {
+                    print("Anonymous 2");
+                  },
+                ),
+                RaisedButton(
+                  child: Text("Answer 3"),
+                  onPressed: answerQuestion,
+                ),
               ],
-            )
-        )
-    );
+            )));
   }
 
   void answerQuestion() {
