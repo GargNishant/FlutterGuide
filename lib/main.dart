@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+import 'package:flutterguide/statelessText.dart';
+
 void main() => runApp(ApplicationWidget());
 
 class ApplicationWidget extends StatefulWidget {
@@ -21,7 +24,7 @@ class _ApplicationWidgetState extends State<ApplicationWidget>{
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(_questions[_questIndex]),
+                StatelessText(_questions[_questIndex]),
                 RaisedButton(child: Text("Answer 1"), onPressed: _answerQuestion,),
                 RaisedButton(child: Text("Answer 2"), onPressed: _answerQuestion,),
                 RaisedButton(child: Text("Answer 3"), onPressed: _answerQuestion,),
