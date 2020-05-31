@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutterguide/button.dart';
 
 import 'package:flutterguide/statelessText.dart';
 
@@ -20,14 +20,13 @@ class _ApplicationWidgetState extends State<ApplicationWidget>{
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(title: Text("App Bar Text Widget"),),
+            appBar: AppBar(title: Text("App Bar"),),
             body: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 StatelessText(_questions[_questIndex]),
-                RaisedButton(child: Text("Answer 1"), onPressed: _answerQuestion,),
-                RaisedButton(child: Text("Answer 2"), onPressed: _answerQuestion,),
-                RaisedButton(child: Text("Answer 3"), onPressed: _answerQuestion,),
+                Button(_answerQuestion,"Answer 1"),
+                Button(_answerQuestion,"Answer 2"),
+                Button(_answerQuestion,"Answer 3"),
               ],
             )));
   }
