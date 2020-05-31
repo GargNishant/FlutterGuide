@@ -10,8 +10,8 @@ class ApplicationWidget extends StatefulWidget {
 }
 
 class _ApplicationWidgetState extends State<ApplicationWidget>{
-  var questIndex = 0;
-  var questions = ["What's you favorite color?", "What's your favorite animal?"];
+  var _questIndex = 0;
+  var _questions = ["What's you favorite color?", "What's your favorite animal?"];
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +21,19 @@ class _ApplicationWidgetState extends State<ApplicationWidget>{
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(questions[questIndex]),
-                RaisedButton(child: Text("Answer 1"), onPressed: answerQuestion,),
-                RaisedButton(child: Text("Answer 2"), onPressed: answerQuestion,),
-                RaisedButton(child: Text("Answer 3"), onPressed: answerQuestion,),
+                Text(_questions[_questIndex]),
+                RaisedButton(child: Text("Answer 1"), onPressed: _answerQuestion,),
+                RaisedButton(child: Text("Answer 2"), onPressed: _answerQuestion,),
+                RaisedButton(child: Text("Answer 3"), onPressed: _answerQuestion,),
               ],
             )));
   }
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState((){
-      questIndex += 1;
-      questIndex = questIndex%2;
+      _questIndex += 1;
+      _questIndex = _questIndex%2;
     });
-    print(questIndex);
+    print(_questIndex);
   }
 }
