@@ -2,41 +2,38 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(ApplicationWidget());
 
-class ApplicationWidget extends StatelessWidget {
+class ApplicationWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ApplicationWidgetState();
+  }
+}
+
+class _ApplicationWidgetState extends State<ApplicationWidget>{
+  var questIndex = 0;
+  var questions = ["What's you favorite color?", "What's your favorite animal?"];
+
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      "What's you favorite color?",
-      "What's your favorite animal"
-    ];
     return MaterialApp(
         home: Scaffold(
-            //Scaffold contains some basic elements of empty page like White background, themes for Text, etc
-            appBar: AppBar(
-              title: Text("App Bar Text Widget"),
-            ),
+            appBar: AppBar(title: Text("App Bar Text Widget"),),
             body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text("The Question!"),
-                RaisedButton(
-                  child: Text("Answer 1"),
-                  onPressed: () => print("Anonymous"),
-                ),
-                RaisedButton(
-                  child: Text("Answer 2"),
-                  onPressed: () {
-                    print("Anonymous 2");
-                  },
-                ),
-                RaisedButton(
-                  child: Text("Answer 3"),
-                  onPressed: answerQuestion,
-                ),
+                Text(questions[questIndex]),
+                RaisedButton(child: Text("Answer 1"), onPressed: answerQuestion,),
+                RaisedButton(child: Text("Answer 2"), onPressed: answerQuestion,),
+                RaisedButton(child: Text("Answer 3"), onPressed: answerQuestion,),
               ],
             )));
   }
 
   void answerQuestion() {
-    print("Answer Chosen!");
+    setState((){
+      questIndex += 1;
+      questIndex = questIndex%2;
+    });
+    print(questIndex);
   }
 }
