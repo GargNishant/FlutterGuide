@@ -12,6 +12,7 @@ class Button extends StatelessWidget{
       width: double.infinity,
       margin: EdgeInsets.only(left: 10,right: 10,bottom: 5),
       child: RaisedButton(onPressed: passedFunction,
+        splashColor: Colors.green,
         color: Colors.greenAccent,
         child: Text(text),
       ),
